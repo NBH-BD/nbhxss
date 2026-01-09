@@ -7,6 +7,23 @@ Version: 2.1.0
 
 import argparse
 import sys
+import subprocess
+import os
+
+def update_tool():
+    print("[*] Checking for updates...")
+
+    if not os.path.isdir(".git"):
+        print("[!] Git repository not found.")
+        print("[!] Please install NBHXSS using git clone to enable auto-update.")
+        return
+
+    try:
+        subprocess.run(["git", "pull"], check=True)
+        print("[+] NBHXSS updated successfully!")
+    except subprocess.CalledProcessError:
+        print("[!] Update failed. Please update manually.")
+
 
 BANNER = "NBHXSS v2.1.0 | Author: NBH-BD\nAdvanced XSS Hunting Framework"
 
@@ -35,7 +52,17 @@ def main():
     parser.add_argument("--threads", type=int, default=10, help="Threads (default: 10)")
     parser.add_argument("--headless", action="store_true", help="Enable headless browser")
 
+        parser.add_argument(
+        "--update",
+        action="store_true",
+        help="Update NBHXSS to the latest version"
+    )
+
     args = parser.parse_args()
+    if args.update:
+        update_tool()
+        sys.exit(0)
+
 
     print(BANNER)
 
@@ -52,5 +79,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
