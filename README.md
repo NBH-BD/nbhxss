@@ -16,7 +16,7 @@ Make sure you have **Python 3.9+** installed.
 ### 📥 Clone the Repository
 
 ```bash
-git clone https://github.com/NHB-BD/nbhxss.git
+git clone https://github.com/NBH-BD/nbhxss.git
 cd nbhxss
 ```
 
@@ -110,7 +110,7 @@ Bug bounty programs with explicit permission
 
 👤 Author
 
-Author: NHB-BD
+Author: NBH-BD
 
 Version: 2.1.0
 
@@ -122,6 +122,7 @@ NBHXSS is an advanced XSS hunting framework designed for
 bug bounty hunters and security researchers.
 
 Happy Hunting 🕵️‍♂️
+
 
 
 
