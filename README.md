@@ -19,26 +19,26 @@ Make sure you have **Python 3.9+** installed.
 git clone https://github.com/NHB-BD/nbhxss.git
 cd nbhxss
 
----
+
 
 📦 Install Dependencies
 ```bash
 pip install -r requirements.txt
 
----
+
 
 🌐 Optional – Headless Browser Support
 ```bash
 playwright install
 
----
+
 
 🚀 Usage
 🔹 Scan a Single URL
 ```bash
 python nbhxss.py -u "https://target.com/page.php?id=1"
 
----
+
 
 NBHXSS will automatically:
 Detect parameters
@@ -48,7 +48,7 @@ Select correct payload
 Attempt WAF bypass
 Verify XSS via headless browser (if enabled)
 
----
+
 
 
 🔹 Scan Multiple URLs from a File
@@ -61,7 +61,7 @@ Example params.txt:
 https://target.com/page.php?id=1
 https://target.com/search?q=test
 
----
+
 
 🔹 Skip Static Files
 ```bash
@@ -72,7 +72,7 @@ Skipped file types:
 ```bash
 .js .css .jpg .png .svg .woff
 
----
+
 
 🧪 Payload System
 
@@ -89,14 +89,14 @@ Safe for bug bounty testing
 
 ✅ You do NOT need to manually provide payloads.
 
----
+
 
 🐳 Docker Usage (Optional)
 ```bash
 docker build -t nbhxss .
 docker run --rm nbhxss -u https://target.com/page.php?id=1
 
----
+
 
 ⚠️ Disclaimer
 This tool is intended ONLY for:
@@ -106,7 +106,7 @@ Bug bounty programs with explicit permission
 
 🚫 Do NOT use this tool against targets without authorization.
 
----
+
 
 👤 Author
 
@@ -114,7 +114,7 @@ Author: NHB-BD
 
 Version: 2.1.0
 
----
+
 
 🛡️ About
 
@@ -122,5 +122,6 @@ NBHXSS is an advanced XSS hunting framework designed for
 bug bounty hunters and security researchers.
 
 Happy Hunting 🕵️‍♂️
+
 
 
