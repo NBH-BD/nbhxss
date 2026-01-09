@@ -10,6 +10,10 @@ import sys
 import subprocess
 import os
 
+BANNER = "NBHXSS v2.1.0 | Author: NBH-BD\nAdvanced XSS Hunting Framework"
+
+
+# ================= UPDATE FUNCTION =================
 def update_tool():
     print("[*] Checking for updates...")
 
@@ -25,9 +29,7 @@ def update_tool():
         print("[!] Update failed. Please update manually.")
 
 
-BANNER = "NBHXSS v2.1.0 | Author: NBH-BD\nAdvanced XSS Hunting Framework"
-
-# ===== YOUR EXISTING / FUTURE LOGIC GOES HERE =====
+# ================= SCAN LOGIC =================
 def scan_url(url):
     print(f"[+] Scanning URL: {url}")
     # XSS logic here
@@ -36,10 +38,12 @@ def scan_url(url):
 def scan_list(file):
     with open(file, "r") as f:
         for line in f:
-            scan_url(line.strip())
+            line = line.strip()
+            if line:
+                scan_url(line)
 
 
-# ===== CLI ENTRY POINT =====
+# ================= CLI ENTRY =================
 def main():
     parser = argparse.ArgumentParser(
         description="Advanced XSS Hunting Framework for Bug Bounty & Authorized Testing",
@@ -52,17 +56,18 @@ def main():
     parser.add_argument("--threads", type=int, default=10, help="Threads (default: 10)")
     parser.add_argument("--headless", action="store_true", help="Enable headless browser")
 
-        parser.add_argument(
+    parser.add_argument(
         "--update",
         action="store_true",
         help="Update NBHXSS to the latest version"
     )
 
     args = parser.parse_args()
+
     if args.update:
+        print(BANNER)
         update_tool()
         sys.exit(0)
-
 
     print(BANNER)
 
@@ -79,6 +84,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
